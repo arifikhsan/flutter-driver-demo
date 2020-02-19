@@ -26,7 +26,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,43 +33,44 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
         centerTitle: true,
       ),
-        body: Center(
-          child: ListView(
-            shrinkWrap: true,
-            children: <Widget>[
-              TextField(
-                key: Key('inputKeyString'),
-                decoration: InputDecoration(
-                  hintText: 'Enter Text Here',
-                ),
-                textAlign: TextAlign.center,
+      body: Center(
+        child: ListView(
+          shrinkWrap: true,
+          children: <Widget>[
+            TextField(
+              key: Key('inputKeyString'),
+              decoration: InputDecoration(
+                hintText: 'Enter Text Here',
               ),
-              TextField(
-                key: Key('passKeyString'),
-                decoration: InputDecoration(
-                  hintText: 'Enter Password Here',
-                ),
-                textAlign: TextAlign.center,
+              textAlign: TextAlign.center,
+            ),
+            TextField(
+              key: Key('passKeyString'),
+              decoration: InputDecoration(
+                hintText: 'Enter Password Here',
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 15.0),
-                child: RaisedButton(
-                  key: Key('button'),
-                  child: Text('Login'),
-                  onPressed: ()
-    {
-    //  _showDialog();
-    Navigator.push(
-    context, MaterialPageRoute(
-    builder:
-    (context) => NextScreen()));
-    }
-                    )
-    )
-    ]
-    )
-    )
-    );// This trailing comma makes auto-formatting nicer for build methods.
+              textAlign: TextAlign.center,
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 15.0),
+              child: RaisedButton(
+                key: Key('button'),
+                child: Text('Login'),
+                onPressed: () {
+                  //  _showDialog();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NextScreen(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    ); // This trailing comma makes auto-formatting nicer for build methods.
   }
 
   Widget _showDialog() {
@@ -80,8 +80,14 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (BuildContext context) {
         return AlertDialog(
           key: Key('alertDialog'),
-          title: Text('Login', key: Key('AlertTitle'),),
-          content: Text('Login successful', key: Key('AlertBody'),),
+          title: Text(
+            'Login',
+            key: Key('AlertTitle'),
+          ),
+          content: Text(
+            'Login successful',
+            key: Key('AlertBody'),
+          ),
           actions: <Widget>[
             FlatButton(
               key: Key('alertButton'),
@@ -92,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         );
-      }
+      },
     );
   }
 }
